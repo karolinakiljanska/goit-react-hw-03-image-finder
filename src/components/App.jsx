@@ -8,7 +8,6 @@ import Button from './Button/Button';
 import Loader from './Loader/Loader';
 import ErrorMessage from './ErrorMessage/Error';
 import Modal from './Modal/Modal';
-// import css from './app.css';
 
 class App extends Component {
   state = {
@@ -31,11 +30,6 @@ class App extends Component {
     }
   };
 
-  // onSearchQuery = (data) => {
-  //   this.setState({searchQuery: data.inputValue});
-  // }
-
-  //searchForm submit and setting query and page for the first search
   onSubmitSearch = query => {
     this.setState({
       searchQuery: query,
@@ -43,10 +37,8 @@ class App extends Component {
       currentPage: 1,
     });
     this.fetchImages(query, 1);
-    // this.fetchImages(query, this.state.currentPage);
   };
 
-  //uploading more pages upon current search
   onPageUpload = () => {
     this.setState(prev => ({
       currentPage: prev.currentPage + 1,
@@ -80,7 +72,6 @@ class App extends Component {
     }
   };
 
-  //work with modal
   onModalOpen = data => {
     this.setState({
       modal: {
@@ -104,16 +95,7 @@ class App extends Component {
     const showBtn = !loading && images.length !== totalImages;
 
     return (
-      <div
-      // style={{
-      //   height: '100vh',
-      //   display: 'flex',
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      //   fontSize: 40,
-      //   color: '#010101'
-      // }}
-      >
+      <div>
         <SearchBar onSubmit={this.onSubmitSearch} />
         {loading && <Loader />}
         {images.length > 0 && (

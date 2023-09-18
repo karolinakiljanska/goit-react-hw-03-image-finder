@@ -36,7 +36,6 @@ class App extends Component {
       images: [],
       currentPage: 1,
     });
-    this.fetchImages(query, 1);
   };
 
   onPageUpload = () => {

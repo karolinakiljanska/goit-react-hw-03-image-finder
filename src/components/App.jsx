@@ -92,17 +92,17 @@ class App extends Component {
 
   render() {
     const { images, loading, error, totalImages, modal } = this.state;
-    const showBtn = !loading && images.length !== totalImages;
+    const showBtn = !loading && images.length < totalImages;
 
     return (
       <div>
         <SearchBar onSubmit={this.onSubmitSearch} />
-        {loading && <Loader />}
+
         {images.length > 0 && (
           <ImageGallery images={images} onModalOpen={this.onModalOpen} />
         )}
         {error && <ErrorMessage />}
-
+        {loading && <Loader />}
         {showBtn && <Button onPageUpload={this.onPageUpload} />}
 
         {modal.isOpen && (
